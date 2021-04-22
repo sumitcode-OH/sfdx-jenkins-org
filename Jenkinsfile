@@ -35,7 +35,7 @@ node {
 		// -------------------------------------------------------------------------
 
 		stage('Authorize to Salesforce') {
-			rc = sh returnStatus: true, script: "${toolbelt} force:auth:jwt:grant --clientid 3MVG9kBt168mda_8pPnWxglIfbFGPYvNkKZeYb_wT1TOx_EMPgCXoet5IEU51ywR5o0tJ4ceK5iAFVCl0sT69 --username ssaha@curious-otter-i702ll.com --jwtkeyfile **** --setdefaultdevhubusername --instanceurl https://login.salesforce.com"
+			rc = sh returnStatus: true, script: "${toolbelt} force:auth:jwt:grant --clientid ${SF_CONSUMER_KEY} --username ssaha@curious-otter-i702ll.com --jwtkeyfile **** --setdefaultdevhubusername --instanceurl https://login.salesforce.com"
 			//rc = command "${toolbelt}/sfdx auth:jwt:grant --instanceurl ${SF_INSTANCE_URL} --clientid ${SF_CONSUMER_KEY} --jwtkeyfile ${server_key_file} --username ${SF_USERNAME} --setalias UAT"
 			//rc = command "/usr/local/bin/sfdx auth:jwt:grant --instanceurl https://login.salesforce.com --clientid 3MVG9kBt168mda_8pPnWxglIfbFGPYvNkKZeYb_wT1TOx_EMPgCXoet5IEU51ywR5o0tJ4ceK5iAFVCl0sT69 --jwtkeyfile /Users/ssaha/JWT/server.key --username ssaha@curious-otter-i702ll.com --setalias UAT"
 		    if (rc != 0) {
